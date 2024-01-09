@@ -1,0 +1,19 @@
+{
+  "expo": {
+    "scheme": "expo-starter",
+    "web": {
+      "output": "server",
+      "bundler": "metro",
+    },
+    "plugins": [
+      [
+        "expo-router",
+        {
+          "origin": "http://localhost:3000",
+        }
+      ]
+    ],
+    "name": "expo-starter",
+    "slug": "expo-starter"
+  }
+}

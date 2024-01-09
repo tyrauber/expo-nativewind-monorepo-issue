@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "name": "@expo-starter/ui",
+  "version": "1.0.0",
+  "description": "React Native UI Elements",
+  "author": "Ty Rauber <tyrauber@mac.com>",
+  "license": "MIT",
+  "main": "src/index.tsx",
+  "scripts": {
+    "test": "echo 'nothing to do'",
+    "lint": "eslint --fix --ext js,ts,tsx ."
+  },
+  "dependencies": {
+    "@tsconfig/recommended": "^1.0.3",
+    "expo-image": "*",
+    "expo-linear-gradient": "*",
+    "nativewind": "*",
+    "react-native": "*",
+    "tailwind-variants": "*",
+    "tailwindcss": "*"
+  }
+}
