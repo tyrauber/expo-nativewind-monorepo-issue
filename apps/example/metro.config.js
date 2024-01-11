@@ -4,9 +4,17 @@ const { withNativeWind } = require("nativewind/metro");
 const { FileStore } = require('metro-cache');
 const path = require('path');
 
+const projectRoot = __dirname;
+const workspaceRoot = path.resolve(projectRoot, '../..');
+
 module.exports = withTurborepoManagedCache(
   withMonorepoPaths(
-    withNativeWind(getDefaultConfig(__dirname), { input: "./src/global.css" })
+    withNativeWind(getDefaultConfig(__dirname), { 
+      projectRoot: projectRoot, 
+      configPath: "../../tailwind.config.js",
+      outputDir: "./node_modules/.cache/nativewind",
+      input: "../../global.css" 
+    })
   )
 );
 
@@ -19,9 +27,6 @@ module.exports = withTurborepoManagedCache(
  * @returns {import('expo/metro-config').MetroConfig}
  */
 function withMonorepoPaths(config) {
-  const projectRoot = __dirname;
-  const workspaceRoot = path.resolve(projectRoot, '../..');
-
   // #1 - Watch all files in the monorepo
   config.watchFolders = [workspaceRoot];
 

@@ -41,3 +41,48 @@ This repo uses Expo SDK 50 Preview 7 with the following libraries:
   ```
 
 Any suggestions would be greatly appreciated.
+
+#  Round 2: workspaceRoot Config 
+
+Ok, Different approach.
+
+Move global.css and tailwind.config.js to workspaceRoot, not app directory (projectRoot). Update the metro.config.js options, per the documentation, specifying the configPath and input relative to workspaceRoot.
+
+```
+const projectRoot = __dirname;
+const workspaceRoot = path.resolve(projectRoot, '../..');
+
+module.exports = withTurborepoManagedCache(
+  withMonorepoPaths(
+    withNativeWind(getDefaultConfig(__dirname), { 
+      projectRoot: projectRoot,
+      configPath: "../../tailwind.config.js",
+      input: "../../global.css" 
+    })
+  )
+);
+```
+
+(I tried setting the projectRoot to workspaceRoot, but  [nativewindConfig doesn't taking into account the projectRoot config option when resolving the input path or tailwindConfig path](https://github.com/marklawlor/nativewind/blob/main/packages/nativewind/src/metro/index.ts#L53-L57). If you patch that resolving to workspaceRoot, then you need to resolve the outputDir to the projectRoot node modules. This seemed easier.)
+
+Update global.css to point to tailwind.config.js, as per the [tailwind documentation](https://tailwindcss.com/docs/configuration#using-a-different-file-name).
+
+```
+@config "./tailwindcss-config.js";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+Update references to global.css to reflect the workspaceRoot path.
+
+Because tailwindcss is being run from projectRoot, the tailwind.config content must still relative to project root. 
+
+```
+content: ["../../apps/example/src/**/*.{js,jsx,ts,tsx}", "../../packages/ui/src/**/*.{js,jsx,ts,tsx}"],
+```
+
+This was counter intuitive to me - the goal of moving everything to workspace root was to make it relative to workspace root. BUT this does work. Atleast for the the example app.  The UI packages is still not rendering.
+
+Somthing else must be happening here....
