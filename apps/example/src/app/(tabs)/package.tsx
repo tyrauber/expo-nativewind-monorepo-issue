@@ -1,8 +1,8 @@
-/* Doesn't Work
-import { Page } from '@expo-starter/ui';
+/* Doesn't Work */
+/*
+import { Page } from '@expo-starter/ui/index';
 export default Page;
- */
-
+*/
 import { Link } from "expo-router";
 import React from "react";
 import { Text, View } from "react-native";
@@ -11,7 +11,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Button, H1, P, Code } from "../../../../../packages/ui/src";
 */
 /* Also Doesn't Work */
-import { Button, H1, P, Code } from "@expo-starter/ui";
+import { Button, H1, P, Code } from "@expo-starter/ui/index";
 
 export default function Page() {
   const { top } = useSafeAreaInsets();

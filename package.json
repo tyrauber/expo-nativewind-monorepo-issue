@@ -5,7 +5,10 @@
     "start": "turbo start --filter=\"{./apps/example}...\"",
     "lint": "turbo lint",
     "test": "turbo test",
-    "build": "turbo build"
+    "build": "turbo build",
+    "clean": "turbo clean:modules && turbo clean:apps && pnpm install",
+    "clean:modules": "rm -rf node_modules && rm -rf apps/*/node_modules && rm -rf packages/*/node_modules",
+    "clean:apps": "rm -rf apps/*/ios && rm -rf apps/*/android && rm -rf apps/*/.expo"
   },
   "devDependencies": {
     "turbo": "^1.10.7",

@@ -3,9 +3,17 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@ui/*": ["../../packages/ui/src/*"]
+      "@ui/*": ["../../packages/ui/src/*"],
+      "@expo-starter/ui/*": ["../../packages/ui/src/*"],
+
     }
   },
   "extends": "expo/tsconfig.base",
-  "include": ["global.d.ts", "**/*.ts", "**/*.tsx"]
+  "include": [
+    "../../global.d.ts", 
+    "**/*.ts", 
+    "**/*.tsx",
+    "../../packages/ui/src/**/*.ts", 
+    "../../packages/ui/src/**/*.tsx"
+  ]
 }

@@ -1,9 +1,10 @@
 {
   "expo": {
     "scheme": "expo-starter",
+    "userInterfaceStyle": "automatic",
     "web": {
-      "output": "server",
-      "bundler": "metro",
+      "output": "startic",
+      "bundler": "metro"
     },
     "plugins": [
       [
@@ -15,5 +16,9 @@
     ],
     "name": "expo-starter",
     "slug": "expo-starter"
+  },
+  "experiments": {
+    "tsconfigPaths": true,
+    "typedRoutes": true
   }
 }
