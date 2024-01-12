@@ -10,8 +10,8 @@ export function Page() {
     <View className="flex flex-1">
       <View className="py-12 md:py-24 lg:py-32 xl:py-48"  style={{ paddingTop: top+24 }}>
         <View className="container px-4 md:px-6">
-          <View className="flex flex-col gap-4">
-            <H1>Nativewind Monorepo Example</H1>
+          <View className="flex flex-col gap-4 bg-black">
+            <H1 className='custom-class'>Nativewind Monorepo Example</H1>
             <P>This is an Expo PNPM Monorepo with an Expo Application in the <Code>./apps/example</Code> and a UI package in <Code>./packages/ui</Code>.</P>
             <P>There are two tabs. Both tabs load the exact same code. The first tab, Home, imports components from <Code>./apps/example/components</Code>. The second tab, Package, imports the same code from <Code>./packages/ui/src</Code>.</P>
             <P>The tailwind.config.js content declartion should tell Nativewind to style components in the UI package.</P>
