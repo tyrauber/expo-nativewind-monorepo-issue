@@ -10,13 +10,15 @@
     "test": "echo 'nothing to do'",
     "lint": "eslint --fix --ext js,ts,tsx ."
   },
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.3"
+  },
   "dependencies": {
-    "@tsconfig/recommended": "^1.0.3",
-    "nativewind": "^4.0.22",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-native": "0.73.2",
-    "tailwind-variants": "^0.1.19",
-    "tailwindcss": "^3.4.0"
+    "nativewind": "*",
+    "react": "*",
+    "react-dom": "*",
+    "react-native": "*",
+    "tailwind-variants": "*",
+    "tailwindcss": "*"
   }
 }

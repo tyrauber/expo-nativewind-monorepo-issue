@@ -3,7 +3,6 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@ui/*": ["../../packages/ui/src/*"],
       "@expo-starter/ui/*": ["../../packages/ui/src/*"],
 
     }
