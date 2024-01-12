@@ -12,6 +12,7 @@
     "eas-build-post-install": "tailwindcss -i ./src/global.css -o ./node_modules/.cache/nativewind/global.css.native.css"
   },
   "dependencies": {
+    "@expo/html-elements": "^0.5.1",
     "@expo/vector-icons": "^13.0.0",
     "compression": "^1.7.4",
     "expo": "50.0.0-preview.10",

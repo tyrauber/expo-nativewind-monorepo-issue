@@ -2,7 +2,13 @@ import { Link } from "expo-router";
 import React from "react";
 import { Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Button, H1, P, Code } from "./components";
+import { Button, P, Code } from "./components";
+// ODD: classNames work on @expo/html-elements in package components!!
+export { H1 } from "@expo/html-elements";
+
+// Doesn't Help.
+// import { cssInterop } from "nativewind";
+// cssInterop(Text, { "className": "style" });
 
 export function Page() {
   const { top } = useSafeAreaInsets();
@@ -11,8 +17,12 @@ export function Page() {
       <View className="py-12 md:py-24 lg:py-32 xl:py-48"  style={{ paddingTop: top+24 }}>
         <View className="container px-4 md:px-6">
           <View className="flex flex-col gap-4">
-            <H1>Nativewind Monorepo Example</H1>
-            <P>This is an Expo PNPM Monorepo with an Expo Application in the <Code>./apps/example</Code> and a UI package in <Code>./packages/ui</Code>.</P>
+            {/* H1 @expo/html-elements works */}
+            <H1 className='text-red-500'>Nativewind Monorepo Example</H1>
+            {/* Text className doesn't work */}
+            <Text className="leading-10 text-lg text-gray-800 md:text-xl dark:text-gray-200">
+              This is an Expo PNPM Monorepo with an Expo Application in the <Code>./apps/example</Code> and a UI package in <Code>./packages/ui</Code>.
+            </Text>
             <P>There are two tabs. Both tabs load the exact same code. The first tab, Home, imports components from <Code>./apps/example/components</Code>. The second tab, Package, imports the same code from <Code>./packages/ui/src</Code>.</P>
             <P>The tailwind.config.js content declartion should tell Nativewind to style components in the UI package.</P>
             <Code>content: ["./src/**/*.&#123;js,jsx,ts,tsx&#125;", "../../packages/ui/src/**/*.&#123;js,jsx,ts,tsx&#125;"],</Code>
