@@ -6,5 +6,5 @@
     }
   },
   "extends": "expo/tsconfig.base",
-  "include": ["global.d.ts", "**/*.ts", "**/*.tsx", "../../packages/ui/src/**/*.ts", "../../packages/ui/src/**/*.tsx"],
+  "include": ["../../global.d.ts", "./src/**/*.ts", "./src/**/*.tsx"],
 }

@@ -4,11 +4,7 @@ import { Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Button, P, Code } from "./components";
 // ODD: classNames work on @expo/html-elements in package components!!
-export { H1 } from "@expo/html-elements";
-
-// Doesn't Help.
-// import { cssInterop } from "nativewind";
-// cssInterop(Text, { "className": "style" });
+import { H1 } from "@expo/html-elements";
 
 export function Page() {
   const { top } = useSafeAreaInsets();
