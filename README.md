@@ -10,6 +10,17 @@ The tailwind.config.js content declartion should tell Nativewind to style compon
 
 However, as this test shows, that isn't the case and Nativewind fails to style the UI package.
 
+## Fix
+
+Looking back through @byCedric's expo-monorepo-example, I noticed this line in the [metro.config.js](https://github.com/byCedric/expo-monorepo-example/blob/main/apps/mobile/metro.config.js#L13C1-L14C50) which I hadn't included in this example:
+
+```
+// #3 - Force resolving nested modules to the folders below
+config.resolver.disableHierarchicalLookup = true;
+```
+
+This line is REQUIRED to make Nativewind work within monorepo packages.
+
 ## Usage
 
 1. Clone the repo `git clone git@github.com:tyrauber/expo-nativewind-monorepo-issue.git`

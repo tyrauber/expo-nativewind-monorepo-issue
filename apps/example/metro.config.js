@@ -31,6 +31,7 @@ function withMonorepoPaths(config) {
     path.resolve(workspaceRoot, 'node_modules'),
   ];
 
+  // #3 - Force resolving nested modules to the folders below
   config.resolver.disableHierarchicalLookup = true;
   return config;
 }
